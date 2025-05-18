@@ -109,6 +109,11 @@ if __name__ == "__main__":
     plt.figure(figsize=(14, 7))
     plt.barh(list(top_gainers.keys())+list(top_losers.keys()), list(top_gainers.values())+list(top_losers.values()),
              color="darkviolet")
+    plt.title("Top Gainers and Losers")
+    plt.xlabel("Percentage Change")
+    plt.ylabel("Stock Symbol")
+    plt.grid(True)
+    plt.tight_layout()
     plt.show()
     
     
