@@ -1,0 +1,4 @@
+pandas==2.2.3
+yfinance==0.2.61
+matplotlib==3.10.3
+curl_cffi==0.11.1
