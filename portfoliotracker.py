@@ -55,8 +55,10 @@ def calculateTotalValue(data):
 if __name__ == "__main__":
     portfolio = {
         "INFY.NS": 15,
-        "TCS.NS": 10,
-        "RELIANCE.NS": 12
+        "JIOFIN.NS": 10,
+        "RELIANCE.NS": 12,
+        "HDFCBANK>NS": 15,
+        "ABCAPITAL.NS": 7,
     }
 
     data = cleanData(fetchData(list(portfolio.keys())))
@@ -81,5 +83,11 @@ if __name__ == "__main__":
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    
+    
+    # Saving the plot as a JPEG file
+    plt.savefig("outputs/portfoliotracker.jpg")
+
+    # Showing the plot
     plt.show()
     

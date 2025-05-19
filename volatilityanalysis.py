@@ -46,7 +46,8 @@ def calculateRolling(change_df):
 
 # Run
 if __name__ == "__main__":
-    close = cleanData(fetchData('INFY.NS'))
+    symbol = 'HAL.NS'
+    close = cleanData(fetchData(symbol))
     change = calculateDailyPercents(close=close)
 
     change_df = pd.DataFrame(change)
@@ -63,10 +64,15 @@ if __name__ == "__main__":
     plt.plot(rolling_avg+rolling_std, label='Average+STD', linestyle='--')
     plt.plot(rolling_avg-rolling_std, label="Average-STD", linestyle="--")
 
-    plt.title("Rolling Statistics and Volatility Analysis")
+    plt.title(f"Rolling Statistics and Volatility Analysis - {symbol}")
     plt.xlabel("Date")
     plt.ylabel("Percents")
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+
+    # Saving the plot as a JPEG file
+    plt.savefig(f"outputs/volatility-{symbol}.jpg")
+
+    # Showing the plot
     plt.show()

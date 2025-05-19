@@ -63,7 +63,8 @@ def generateSignals(sma_small, sma_large):
 
 # Run
 if __name__ == "__main__":
-    close, high, low, open, volume = fetchData('BAJFINANCE.NS')
+    symbol = 'RELIANCE.NS'
+    close, high, low, open, volume = fetchData(symbol)
     close = cleanData(close)
     sma_5, sma_20 = calcSMA(close=close, win1=5, win2=20)
     buy, buy_values, sell, sell_values = generateSignals(sma_small=sma_5, sma_large=sma_20)
@@ -77,11 +78,17 @@ if __name__ == "__main__":
     plt.scatter(buy, buy_values, marker='^', color='g', label='Buy Signal', s=100)
     plt.scatter(sell, sell_values, marker='v', color='r', label='Sell Signal', s=100)
 
-    plt.title("SMA Crossover Strategy")
+    plt.title(f"SMA Crossover Strategy - {symbol}")
     plt.xlabel("Date")
     plt.ylabel("Price")
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    
+    
+    # Saving the plot as a JPEG file
+    plt.savefig(f"outputs/sma-{symbol}.jpg")
+
+    # Showing the plot
     plt.show()
     

@@ -116,6 +116,11 @@ if __name__ == "__main__":
     plt.ylabel("Stock Symbol")
     plt.grid(True)
     plt.tight_layout()
+    
+    # Saving the plot as a JPEG file
+    plt.savefig("outputs/gainers-losers.jpg")
+
+    # Showing the plot
     plt.show()
     
     
