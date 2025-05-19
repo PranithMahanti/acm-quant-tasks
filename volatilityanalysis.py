@@ -46,7 +46,7 @@ def calculateRolling(change_df):
 
 # Run
 if __name__ == "__main__":
-    close = cleanData(fetchData('RELIANCE.NS'))
+    close = cleanData(fetchData('INFY.NS'))
     change = calculateDailyPercents(close=close)
 
     change_df = pd.DataFrame(change)
@@ -58,9 +58,10 @@ if __name__ == "__main__":
     
     # Plotting graphs
     plt.figure(figsize=(14, 7))
-    plt.plot(change_df, label='Daily Returns')
-    plt.plot(rolling_avg, label='Rolling Average', linestyle='--')
-    plt.plot(rolling_std, label="Rolling Standard Deviation", linestyle="--")
+    plt.plot(change_df, label='Daily Returns', alpha=0.5)
+    plt.plot(rolling_avg, label='Rolling Average')
+    plt.plot(rolling_avg+rolling_std, label='Average+STD', linestyle='--')
+    plt.plot(rolling_avg-rolling_std, label="Average-STD", linestyle="--")
 
     plt.title("Rolling Statistics and Volatility Analysis")
     plt.xlabel("Date")

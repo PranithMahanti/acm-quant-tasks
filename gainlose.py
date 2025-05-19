@@ -81,7 +81,7 @@ if __name__ == "__main__":
     # Adding .NS at the end of symbols because YFinance API recognises Indian stocks with .NS at the end
     symbols = [symbol+'.NS' for symbol in companies['Symbol'].to_list()]
 
-    print("Selected 20 Comapnies from Nifty 50:")
+    print("Selected 20 Companies from Nifty 50:")
     for company in companies['Company Name']:
         print(company)
 
@@ -107,8 +107,10 @@ if __name__ == "__main__":
 
     # Plotting graphs
     plt.figure(figsize=(14, 7))
-    plt.barh(list(top_gainers.keys())+list(top_losers.keys()), list(top_gainers.values())+list(top_losers.values()),
-             color="darkviolet")
+    #plt.barh(list(top_gainers.keys())+list(top_losers.keys()), list(top_gainers.values())+list(top_losers.values()),
+    #         color="darkviolet")
+    plt.barh(list(top_gainers.keys()), list(top_gainers.values()), color="green")
+    plt.barh(list(top_losers.keys()), list(top_losers.values()), color="red")
     plt.title("Top Gainers and Losers")
     plt.xlabel("Percentage Change")
     plt.ylabel("Stock Symbol")
