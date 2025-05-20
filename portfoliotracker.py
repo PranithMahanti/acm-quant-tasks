@@ -57,7 +57,7 @@ if __name__ == "__main__":
         "INFY.NS": 15,
         "JIOFIN.NS": 10,
         "RELIANCE.NS": 12,
-        "HDFCBANK>NS": 15,
+        "HDFCBANK.NS": 15,
         "ABCAPITAL.NS": 7,
     }
 
